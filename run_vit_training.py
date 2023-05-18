@@ -14,7 +14,7 @@ from torch_xla.distributed.fsdp import XlaFullyShardedDataParallel as FSDP, chec
 from timm.models.vision_transformer import (
     Block,
     PatchEmbed,
-    _init_vit_weights,
+    #_init_vit_weights,
     trunc_normal_,
 )
 
@@ -122,7 +122,7 @@ class FSDPViTModel(nn.Module):
 
         # image patch and positional embedding
         self.patch_embed = PatchEmbed(img_size=image_size, patch_size=patch_size, in_chans=3, embed_dim=embed_dim)
-        _init_vit_weights(self.patch_embed)
+        #_init_vit_weights(self.patch_embed)
         num_patches = self.patch_embed.num_patches
         self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dim))
         trunc_normal_(self.pos_embed, std=0.02)
@@ -139,7 +139,7 @@ class FSDPViTModel(nn.Module):
                 drop=mlp_dropout,
                 attn_drop=att_dropout,
             )
-            _init_vit_weights(block)  # note: init module weights BEFORE wrapping with FSDP
+            #_init_vit_weights(block)  # note: init module weights BEFORE wrapping with FSDP
             # note: to use gradient checkpointing, wrap the module with gradient checkpointing
             # wrapper BEFORE wrapping it with FSDP
             block = fsdp_wrap(grad_ckpt_wrap(block))
@@ -149,7 +149,7 @@ class FSDPViTModel(nn.Module):
 
         # classifier
         self.norm = nn.LayerNorm(embed_dim, eps=1e-6)
-        _init_vit_weights(self.norm)
+        #_init_vit_weights(self.norm)
         self.head = nn.Linear(embed_dim, num_classes)
 
     def forward(self, image):
