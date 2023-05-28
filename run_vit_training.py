@@ -136,8 +136,8 @@ class FSDPViTModel(nn.Module):
                 num_heads=num_heads,
                 mlp_ratio=mlp_ratio,
                 qkv_bias=True,
-                drop=mlp_dropout,
-                attn_drop=att_dropout,
+                #drop=mlp_dropout,
+                #attn_drop=att_dropout,
             )
             #_init_vit_weights(block)  # note: init module weights BEFORE wrapping with FSDP
             # note: to use gradient checkpointing, wrap the module with gradient checkpointing
