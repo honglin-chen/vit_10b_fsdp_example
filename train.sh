@@ -17,4 +17,4 @@ python3 -u ~/vit_10b_fsdp_example/run_vit_training.py \
   --warmup_steps 10000 \
   --log_step_interval 20 \
   --shard_on_cpu \
-  2>&1 | tee ${SAVE_DIR}/stdout_stderr_$(date +%Y-%m-%d_%H-%M-%S).log
+  # 2>&1 | tee ${SAVE_DIR}/stdout_stderr_$(date +%Y-%m-%d_%H-%M-%S).log
