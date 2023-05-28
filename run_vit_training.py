@@ -209,7 +209,7 @@ def run_logging(epoch, step, smoothed_loss, smoothed_time, loss, lr, device):
         f"epoch {epoch} step {(step + 1)}, lr: {lr:.4f}, "
         f"loss: {smoothed_loss.avg:.4f}, "
         f"sec/iter: {smoothed_time.avg:.4f}, "
-        f"TPU memory: {xm.get_memory_info(device)}"
+        #f"TPU memory: {xm.get_memory_info(device)}"
     )
 
 
