@@ -253,6 +253,7 @@ def train(cfg):
     xm.rendezvous("training begins")
     xm.master_print("training begins (the first few iterations are very slow due to compilation)")
     for epoch in range(cfg.resume_epoch + 1, num_epochs + 1):
+        os.makedirs(f'step_{epoch}', exist_ok=True)
         xm.master_print(f"starting epoch {epoch}")
         time_epoch_b = time_step_b = time.time()
         model.train()
