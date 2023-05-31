@@ -253,12 +253,13 @@ def train(cfg):
     xm.rendezvous("training begins")
     xm.master_print("training begins (the first few iterations are very slow due to compilation)")
     for epoch in range(cfg.resume_epoch + 1, num_epochs + 1):
-        os.makedirs(f'step_{epoch}', exist_ok=True)
+        
         xm.master_print(f"starting epoch {epoch}")
         time_epoch_b = time_step_b = time.time()
         model.train()
         train_sampler.set_epoch(epoch)
         for step, (data, target) in enumerate(train_loader):
+            os.makedirs(f'step_{epoch}', exist_ok=True)
             # 1. forward pass
             output = model(data)
             loss = loss_fn(output, target)
