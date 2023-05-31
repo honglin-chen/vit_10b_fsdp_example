@@ -36,10 +36,10 @@ sudo pip3 install https://storage.googleapis.com/tpu-pytorch/wheels/tpuvm/torch_
 sudo pip3 install https://storage.googleapis.com/cloud-tpu-tpuvm-artifacts/wheels/libtpu-nightly/libtpu_nightly-0.1.dev20221017-py3-none-any.whl
 
 # ViT dependency
-sudo pip3 install timm==0.4.12
+# sudo pip3 install timm==0.4.12
 
 # clone this repo ViT FSDP example
-cd ~ && rm -rf vit_10b_fsdp_example && git clone https://github.com/ronghanghu/vit_10b_fsdp_example.git
+cd ~ && rm -rf vit_10b_fsdp_example && git clone https://github.com/honglin-chen/vit_10b_fsdp_example.git
 "
 ```
 
