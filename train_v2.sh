@@ -9,7 +9,7 @@ python3 -u ~/vit_10b_fsdp_example/run_vit_training.py \
   --ckpt_dir ${SAVE_DIR} \
   --image_size 224 \
   --patch_size 4 \
-  --embed_dim 2560 \
+  --embed_dim 1024 \
   --mlp_ratio 4.0 \
   --num_heads 32 \
   --num_blocks 32 \
