@@ -1,4 +1,4 @@
-TPU_NAME=hc-tpuv4-128-0 # change to your TPU name
+TPU_NAME=hc-tpuv4-128-2# change to your TPU name
 SAVE_DIR=~/vit_10b_fsdp_example_ckpts  # this can be any directory (it doesn't need to be a shared one across nodes)
 
 mkdir -p ${SAVE_DIR}
