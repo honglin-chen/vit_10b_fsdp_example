@@ -259,8 +259,7 @@ def train(cfg):
         model.train()
         train_sampler.set_epoch(epoch)
         for step, (data, target) in enumerate(train_loader):
-            print('step', step)
-            os.makedirs(f'step_{step}', exist_ok=True)
+            
             # 1. forward pass
             output = model(data)
             loss = loss_fn(output, target)
@@ -289,6 +288,8 @@ def train(cfg):
             smoothed_time.update(time_step_elapsed, batch_size=1)
             is_first_iter = epoch == cfg.resume_epoch + 1 and step == 0
             if is_first_iter or (step + 1) % cfg.log_step_interval == 0:
+                xm.master_print('reach step', step)
+                os.makedirs(f'step_{step}', exist_ok=True)
                 lr = optimizer.param_groups[0]["lr"]
                 xm.add_step_closure(
                     run_logging, args=(epoch, step, smoothed_loss, smoothed_time, loss, lr, device),
