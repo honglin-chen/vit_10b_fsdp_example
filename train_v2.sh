@@ -8,8 +8,8 @@ python3 -u ~/vit_10b_fsdp_example/run_vit_training.py \
   --fake_data \
   --ckpt_dir ${SAVE_DIR} \
   --image_size 224 \
-  --patch_size 4 \
-  --embed_dim 1024 \
+  --patch_size 14 \
+  --embed_dim 5120 \
   --mlp_ratio 4.0 \
   --num_heads 32 \
   --num_blocks 32 \
