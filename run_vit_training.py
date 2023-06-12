@@ -259,9 +259,8 @@ def train(cfg):
         model.train()
         train_sampler.set_epoch(epoch)
         for step, (data, target) in enumerate(train_loader):
-            if step > 3:
-                print('Reach step 3 break')
-            os.makedirs(f'step_{epoch}', exist_ok=True)
+            print('step', step)
+            os.makedirs(f'step_{step}', exist_ok=True)
             # 1. forward pass
             output = model(data)
             loss = loss_fn(output, target)
