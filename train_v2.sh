@@ -2,8 +2,8 @@ TPU_NAME=hc-tpuv4-128-2 # change to your TPU name
 SAVE_DIR=~/vit_10b_fsdp_example_ckpts  # this can be any directory (it doesn't need to be a shared one across nodes)
 
 mkdir -p ${SAVE_DIR}
-cd ${HOME} && python3 -m torch_xla.distributed.xla_dist \
-  --tpu=${TPU_NAME} --restart-tpuvm-pod-server --env PYTHONUNBUFFERED=1 -- \
+# cd ${HOME} && python3 -m torch_xla.distributed.xla_dist \
+#   --tpu=${TPU_NAME} --restart-tpuvm-pod-server --env PYTHONUNBUFFERED=1 -- \
 python3 -u ~/vit_10b_fsdp_example/run_vit_training.py \
   --fake_data \
   --ckpt_dir ${SAVE_DIR} \
